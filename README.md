@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+### Общие требования
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Теги Title и Description должны располагаться сразу после открытия тега head. Значения можно прописать любые.
+2. Вынести все стили, которые используются в макете в отдельные CSS-файлы.
+3. Не допускать конфликта CSS-стилей.
+4. Добиться кроссбраузерности:
+    * Google Chrome
+    * Android
+    * Mobile Safari
+    * Яндекс.Браузер
+    * Firefox
+    * Opera.
+5. Пройти валидацию [https://validator.w3.org/](https://validator.w3.org/). Это не критичное требование, но элементарных
+   ошибок верстки не должно быть (например, незакрытые теги, пропуск обязательных атрибутов и т.п.).
 
-## Available Scripts
+* По умолчанию минимальное разрешение макетов — 320px (в таком размере будут все дизайн-макеты), т.к. в среднем 25% всех
+  посещений с мобильных устройств происходят именно с устройств с таким логическим разрешением по горизонтали.
+* Если устройство уже, чем 320px, то пропорционально уменьшаем сайт с разрешения 320px до разрешения экрана
+  пользователя (чтобы не появлялся горизонтальный скролл).
+* Максимальное разрешение по умолчанию — 1440px.
+* Если ширина экрана пользователя больше, чем 1440px, то пропорционально масштабируем макет 1440px до разрешения экрана
+  пользователя с пропорциональным расширением отступов слева и справа (для каждого проекта процент отступов
+  индивидуальный).
 
-In the project directory, you can run:
+### Требования к калькулятору
 
-### `npm start`
+1. Калькулятор должен инициализироваться с указанными значениями по умолчанию;
+2. В каждое поле можно ввести значение как с клавиатуры, так и с помощью ползунка;
+3. При выборе значения с помощью ползунка, все числа должны пересчитываться динамически в процессе движения ползунка, а
+   не только после его остановки;
+4. У каждого поля есть максимальное и минимальное значение — ползунок должен ограничивать пользователя в выборе данных,
+   а при вводе некорректного значения с клавиатуры, оно должно сбрасываться к ближайшему корректному числу (максимуму
+   или минимуму).
+    * Для поля “Стоимость автомобиля” границы: 1 млн.руб. — 6 млн.руб.;
+    * Для поля “Первоначальный взнос” границы: 10% - 60% (здесь ввод происходит именно в процентах от стоимости, а не
+      рублях; рубли - результат расчета от введенной стоимости автомобиля);
+    * Для поля “Срок лизинга” границы: 1 - 60 месяцев;
+5. По кнопке “Оформить заявку” должен формироваться запрос, который отправляет все данные калькулятора на бэкенд,
+   например, чтобы потом backend мог использовать эти данные для передачи в CRM-систему.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+_В момент клика по кнопке кнопка должна блокироваться от возможности повторной отправки данных на время выполнения
+запроса к бэкенду, а внутри кнопки отображаться прелоадер. Инпуты и слайдеры на время отправки должны блокироваться._
