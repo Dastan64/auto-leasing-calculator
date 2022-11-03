@@ -1,8 +1,5 @@
-export const calculateInitialPayment = (initial_payment_percent, car_cost) => {
-    // console.log(`Процент: ${initial_payment_percent}, а цена: ${car_cost.toLocaleString()}`)
-    // console.log(Math.floor((car_cost * initial_payment_percent) / 100))
-    return Math.floor((car_cost * initial_payment_percent) / 100)
-};
+export const calculateInitialPayment = (initial_payment_percent, car_cost) => Math.floor((car_cost * initial_payment_percent) / 100)
+
 
 export const calculateTotalSum = (data) => {
     const { initial_payment, lease_term, monthly_payment_from } = data;

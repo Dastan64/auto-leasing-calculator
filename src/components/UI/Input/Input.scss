@@ -5,6 +5,10 @@
   align-items: flex-start;
   height: 68px;
 
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+
   &--window {
     padding: 16px 24px;
     flex-direction: row;

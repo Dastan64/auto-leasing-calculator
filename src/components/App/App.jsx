@@ -45,16 +45,17 @@ const App = () => {
 
     const handleBlur = (event) => {
         const { target: { name, value } } = event;
-        if (value < ranges[name].min) {
+        if (parseInt(value) < ranges[name].min) {
             setState({ ...state, [name]: ranges[name].min })
-        } else if (value > ranges[name].max) {
+        } else if (parseInt(value) > ranges[name].max) {
             setState({ ...state, [name]: ranges[name].max })
         }
     }
 
     const handleChange = (event) => {
         const { target: { name, value } } = event;
-        setState({ ...state, [name]: value, })
+        console.log(value);
+        setState({ ...state, [name]: isNaN(parseInt(value)) ? 1 : parseInt(value) })
     }
 
     const handleSubmit = (event) => {
